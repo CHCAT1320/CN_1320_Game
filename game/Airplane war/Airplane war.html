@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+	<head>
+		<meta charset="utf-8">
+		<title>飞机大战</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0 user-scalable=no">
+		<link rel="stylesheet" type="text/css" href="js/game run.css">
+		<link rel="icon" href="img/favicon.ico">
+	</head>
+	<style>
+		#background{width: 480px;height: 700px;position: absolute;top: 50%;left: 50%;transform: translate(-50%, -50%);}
+		body {margin: 0;padding: 0;background-color: #87CEFA;}
+		*{user-select: none;}
+		/*#background{position: relative;overflow: hidden;}*/
+	</style>
+	<body id="body">
+		<script type="text/javascript" src="js/game run.js"></script>
+		<div id="background" onmousemove="movePlayer(event)">
+			<audio src="audio/bgm.mp3" id="bgm" autoplay loop></audio>
+			<img src="img/background.png" ondragstart="return false;">
+			<h5 style="margin-top: -25px;opacity: 0.4;color: blue;">Airplane war v0.0.1 by @CHCAT1320</h5>
+			<div id="title" style="position: absolute;top: 20%;left: 7%;">
+				<img src="img/title.png" id="title-img" style="width: 400px;height: 100px;display: block;" ondragstart="return false;">
+			</div>
+			<div id="start-game" style="position: absolute;top: 50%;left: 50%;transform: translate(-50%, -50%);">
+				<img src="img/start.png" id="start-game-img-button" ondragstart="return false;" style="display: block;" onclick="hideStartButton()">
+			</div>
+				<div id="player-aircraft" style="position: absolute;top: 550px;left: 190px;"></div>
+				</div>
+				<script>
+var startButton = document.getElementById("start-game-img-button");
+var player = document.getElementById("player-aircraft");
+var background = document.getElementById("background");
+var isDragging = false;
+var offsetX = 0;
+var offsetY = 0;
+startButton.addEventListener("click", function() {
+  hideStartButton(); // 隐藏开始按钮
+  player.addEventListener("mousedown", startDragging);
+  document.addEventListener("mousemove", dragPlayer);
+  document.addEventListener("mouseup", stopDragging);
+
+  
+  var score = 0; // 初始化分数为0
+  
+  setInterval(function() {
+    // 创建敌机元素
+    var enemyPlane = document.createElement("div");
+    enemyPlane.setAttribute("id", "enemy-plane");
+  
+    // 随机生成x坐标
+    var randomX = Math.floor(Math.random() * 423); // 0到480之间的随机数
+    enemyPlane.style.left = randomX + "px";
+  
+    // 设置初始y坐标
+    var initialY = -50;
+    enemyPlane.style.top = initialY + "px";
+  
+    // 将敌机元素添加到页面中
+    document.body.appendChild(enemyPlane);
+  
+    // 更新敌机位置
+    var enemyInterval = setInterval(function() {
+      initialY += 10;
+      enemyPlane.style.top = initialY + "px";
+  
+      // 如果敌机飞出屏幕，则删除敌机并减1分
+      if (initialY > 700) {
+        clearInterval(enemyInterval);
+        enemyPlane.remove();
+        score -= 1;
+        updateScore();
+      }
+    }, 60);
+  
+  }, 3000);
+  
+  function updateScore() {
+    var scoreElement = document.getElementById("score");
+    scoreElement.innerText = "分数: " + score;
+  }
+  
+  function hitEnemy(enemyPlane) {
+    // 播放动画
+    var animationFrames = ["img/enemy/boon/enemy1.png", "img/enemy/boon/enemy2.png", "img/enemy/boon/enemy3.png", "img/enemy/boon/enemy4.png", "img/enemy/boon/enemy5.png"];
+    var currentFrame = 0;
+    var animationInterval = setInterval(function() {
+      enemyPlane.style.backgroundImage = "url('" + animationFrames[currentFrame] + "')";
+      currentFrame++;
+      if (currentFrame >= animationFrames.length) {
+        clearInterval(animationInterval);
+        enemyPlane.remove();
+        score += 2; // 击中敌机加2分
+        updateScore();
+      }
+    }, 200);
+  }
+  
+  document.addEventListener("click", function(event) {
+    var target = event.target;
+    if (target.id === "bullet") {
+      var enemyPlanes = document.getElementsByClassName("enemy-plane");
+      for (var i = 0; i < enemyPlanes.length; i++) {
+        var enemyPlane = enemyPlanes[i];
+        var bulletRect = target.getBoundingClientRect();
+        var enemyPlaneRect = enemyPlane.getBoundingClientRect();
+        if (
+          bulletRect.left < enemyPlaneRect.right &&
+          bulletRect.right > enemyPlaneRect.left &&
+          bulletRect.top < enemyPlaneRect.bottom &&
+          bulletRect.bottom > enemyPlaneRect.top
+        ) {
+          hitEnemy(enemyPlane);
+        }
+      }
+    }
+  });
+
+  
+});
+function hideStartButton() {
+  var startButton = document.getElementById("start-game-img-button");
+  startButton.style.display = "none";
+  var titleImg = document.getElementById("title-img");
+  titleImg.style.display = "none";
+}
+function startDragging(e) {
+  isDragging = true;
+  offsetX = e.clientX - player.offsetLeft;
+  offsetY = e.clientY - player.offsetTop;
+}
+function dragPlayer(e) {
+  if (isDragging) {
+    var x = e.clientX - offsetX;
+    var y = e.clientY - offsetY;
+    var maxX = background.offsetWidth - player.offsetWidth;
+    var maxY = background.offsetHeight - player.offsetHeight;
+    x = Math.max(0, Math.min(x, maxX));
+    y = Math.max(0, Math.min(y, maxY));
+    player.style.left = x + "px";
+    player.style.top = y + "px";
+  }
+}
+function stopDragging() {
+  isDragging = false;
+}
+
+				</script>
+			<div class="off-no-music" onclick="toggleMusic(this)" style="position: absolute;top: 1%;left: 1%"></div>
+		</div>
+	</body>
+</html>

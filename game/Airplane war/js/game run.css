@@ -1,0 +1,65 @@
+@keyframes tiltAnimation {
+				    0% {
+				      transform: rotate(0deg);
+				    }
+				25% {
+				      transform: rotate(5deg);
+				    }
+				    50% {
+				      transform: rotate(0deg);
+				    }
+					75% {
+					  transform: rotate(-5deg);
+					}
+					100% {
+					  transform: rotate(0deg);
+					}
+				  }
+				  #start-game-img-button {
+				    animation: tiltAnimation 0.5s infinite;
+				  }
+				  
+@keyframes imageAnimation {
+    0% {
+      background-image: url("../img/player aircraft/me1.png");
+    }
+    50% {
+      background-image: url("../img/player aircraft/me2.png");
+    }
+    100% {
+      background-image: url("../img/player aircraft/me1.png");
+    }
+  }
+
+  #player-aircraft {
+	  width: 102px;
+	  height: 126px;
+      animation: imageAnimation 0.5s infinite;
+  }
+  
+   .off-no-music {
+        width: 75px;
+        height: 75px;
+        background-image: url("../img/audio1.png");
+        background-size: cover;
+        cursor: pointer;
+	    }
+		
+	.off-no-music.active {
+	    background-image: url("../img/audio.png");
+	    }
+		
+#bullet{
+	background-image: url("../img/bullet1.png");
+	position: absolute;
+	width: 5px;
+	height: 11px;
+}
+#enemy-plane{
+	background-image: url("../img/enemy/enemy1.png");
+	position: absolute;
+	width:57px ;
+	height: 43px;
+	top: -50px;
+}
+
