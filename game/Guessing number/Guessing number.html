@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+	<head>
+		<meta charset="utf-8">
+		<title>猜数字 by CHCAT1320</title>
+		<link rel="icon" href="icon/favicon.ico">
+		<style>
+			 *{
+			     padding: 0;
+			     margin: 0;
+			 }
+			 ul{
+			     list-style: none;
+			 }
+			 li{
+			     float: left;
+			     background-color: white;
+			 }
+			 a{
+			     padding: 0 0px;
+			     height: 20px;
+			     line-height: 22px;
+			     display: block;
+			     color: white;
+			     text-decoration: none;   
+			 }
+			a:hover{
+				background-color: #4FFF49;
+			}
+			button{
+				background-color: #FFFFCC;
+				width: 80px;
+				height: 30px;
+				border: 2px solid #87CEFA;
+				border-radius: 10px;
+				padding: 0px;
+			}
+			button:hover{
+				background-color: #87CEFA;
+				border: 2px solid #FFFFCC;
+			}
+			#box{
+				background-color: rgba(0, 0, 0,0.2);
+				width: 80px;
+				height: 25px;
+				border-radius: 10px;
+				padding: 0px;
+			}
+			#box1{
+				background-color: rgba(0, 0, 0,0.1);
+				width: 80px;
+				height: 30px;
+				border-radius: 10px;
+				padding: 0px;
+			}
+			#text{
+				height: 30px;
+			}
+			#button1 {
+			  position: relative;
+			  top: 0;
+			  transition: top 0.3s ease;
+			}
+			
+			#button1.clicked {
+			  top: 10px; 
+			}
+			#button2 {
+			  position: relative;
+			  top: 0;
+			  transition: top 0.3s ease;
+			}
+			
+			#button2.clicked1 {
+			  top: 10px; 
+			}
+			*{
+				user-select: none;/*老子不让你复制*/
+				}
+		</style>
+	</head>
+	<body>
+		<div id="body" style="text-align: center;">
+			<h2 style="color: blue">猜数字</h2>
+			<div style="display: flex;margin-left: 150px;margin-top: 15px;">
+				<h4>程序：</h4>
+				<ul>
+					<li>
+						<a href="https://space.bilibili.com/1644970825">
+							<h4 style="color: red;">CHCAT1320</h4>
+						</a>
+					</li>
+				</ul>
+				<h4>&</h4>
+				<ul>
+					<li>
+						<a href="https://space.bilibili.com/3494378083453070">
+							<h4 style="color: red;">一袋白凉粉啊</h4>
+						</a>
+					</li>
+				</ul>
+				<h4>（由20230819制作）</h4>
+			</div>
+			<div style="margin-top: 15px;display: flex;margin-left: 300px;">
+				<form action="Guessing number.html" id="scoreform">
+					<h4 id="score"></h4>
+					<button style=";margin-top: 15px" id="button2" onclick="restart()">重新开始</button>
+					<div id="box" style="margin-top: -20px;margin-left: 13px;z-index: -1;"></div>
+					<div id="box1" style="margin-top: -25px;margin-left: 13px;z-index: -1;"></div>
+				</form>
+			</div>
+			<div style="margin-top: 15px;">
+				<h4 id="h44"></h4>
+			</div>
+			<div style="margin-top: 15px;">
+				<h4 id="Timess"></h4>
+			</div>
+			<div style="margin-top: 15px;display: flex;margin-left: 190px;">
+				<h4 style="margin-top: 5px;">你猜的数：</h4>
+				<input type="number" id="text">
+				<button style="margin-left: 10px;" id="button1" onclick="ok()">确定</button>
+				
+				<div id="box" style="margin-top: 10px;margin-left: -80px;z-index: -1;"></div>
+
+				<div id="box1" style="margin-top: 10px;margin-left: -80px;z-index: -1;"></div>
+				
+			</div>
+			<div>
+				<h4 id="Tips"></h4>
+			</div>
+			<h5 style="margin-top: 100px;">Guessing number v0.0.1 by @CHCAT1320 and @一袋白凉粉啊</h5>
+		</div>
+		<script src="js/run.js"></script>
+		<noscript>你没开javascript，玩啥？</noscript>
+	</body>
+</html>
