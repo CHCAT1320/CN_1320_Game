@@ -59,7 +59,7 @@
 			#button1 {
 			  position: relative;
 			  top: 0;
-			  transition: top 0.3s ease;
+			  transition: top 0.1s ease;
 			}
 			
 			#button1.clicked {
@@ -68,7 +68,7 @@
 			#button2 {
 			  position: relative;
 			  top: 0;
-			  transition: top 0.3s ease;
+			  transition: top 0.1s ease;
 			}
 			
 			#button2.clicked1 {
@@ -103,8 +103,8 @@
 			</div>
 			<div style="margin-top: 15px;display: flex;margin-left: 300px;">
 				<form action="Guessing number.html" id="scoreform">
-					<h4 id="score"></h4>
-					<button style=";margin-top: 15px" id="button2" onclick="restart()">重新开始</button>
+					<h4 id="score" style="z-index: 2;"></h4>
+					<button style=";margin-top: 15px;left: -0px;z-index: 0;" id="button2" onclick="restart()">重新开始</button>
 					<div id="box" style="margin-top: -20px;margin-left: 13px;z-index: -1;"></div>
 					<div id="box1" style="margin-top: -25px;margin-left: 13px;z-index: -1;"></div>
 				</form>
