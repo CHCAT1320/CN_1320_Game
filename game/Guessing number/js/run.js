@@ -30,17 +30,20 @@
   var score=0
   var Score=document.getElementById('score');
   Score.innerHTML="您的分数："+score+"分";
-  var Time=180
+  var Time=120
   var Times=document.getElementById('Timess');
   Times.innerHTML="剩余时间"+Time+"秒";
   setInterval(function(){
 	  Time-=1;
 	  Times.innerHTML="剩余时间"+Time+"秒";
-	  if(Time<1){
+	  if(Time===0){
 		  //alert("你输了")
 		  tips.textContent="你输了"
 		  score-=2;
-		  
+		  setInterval(function(){
+			  Time=120
+			  TEXT.value=""
+		  },10)
 	  }
   },1000);
   
@@ -69,8 +72,10 @@
 	   if (a === ranNum) {
 	     tips.textContent = "Tips:猜对了！";
 		 score+=2;
+		 var bgm = document.getElementById("bgm");
+		     bgm.play();
 		 setInterval(function(){
-			 Time=180
+			 Time=120
 			 TEXT.value=""
 		 },10)
 	   } else if (a < ranNum) {
@@ -81,6 +86,7 @@
 		 c=parseInt(TEXT.value);
 	   }else{
 		   tips.textContent="出错了！"
+		   time-=1
 	   }
 	 
 	   
@@ -126,9 +132,5 @@ var scores = score
     var params = new URLSearchParams();
     params.append('scores', scores);
     var url = "Guessing number.html" + '?' + params.toString();
-
-    console.log("提交的score值为：" + scores);
-    console.log("完整的URL为：" + url);
-
     window.location.href = url;
 });
