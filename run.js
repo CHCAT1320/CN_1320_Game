@@ -33,8 +33,8 @@
           watermark_y: 20,//水印起始位置Y轴坐标
           watermark_rows: 1000,//水印行数
           watermark_cols: 1000,//水印列数
-          watermark_x_space: 50,//水印x轴间隔
-          watermark_y_space: 50,//水印y轴间隔
+          watermark_x_space: 20,//水印x轴间隔
+          watermark_y_space: 20,//水印y轴间隔
           watermark_color: '#000000',//水印字体颜色
           watermark_alpha: 0.2,//水印透明度
           watermark_fontsize: '15px',//水印字体大小
@@ -110,5 +110,5 @@
       }
   };
   
-  watermarkUtils({ watermark_txt: "@CHCAT1320  &  @一袋白凉粉", watermark_width: 120, watermark_fontsize: "14px" }, watermarkId);
+  watermarkUtils({ watermark_txt: "@CHCAT1320", watermark_width: 120, watermark_fontsize: "14px" }, watermarkId);
   

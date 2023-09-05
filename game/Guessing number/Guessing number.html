@@ -82,7 +82,7 @@
 	<body>
 		<div id="body" style="text-align: center;">
 			<h2 style="color: blue">猜数字</h2>
-			<div style="display: flex;margin-left: 150px;margin-top: 15px;">
+			<div style="display: flex;margin-left: 200px;margin-top: 15px;">
 				<h4>程序：</h4>
 				<ul>
 					<li>
@@ -91,22 +91,24 @@
 						</a>
 					</li>
 				</ul>
-				<h4>&</h4>
+				<!--<h4>&</h4>
 				<ul>
 					<li>
 						<a href="https://space.bilibili.com/3494378083453070">
 							<h4 style="color: red;">一袋白凉粉啊</h4>
 						</a>
 					</li>
-				</ul>
+				</ul>-->
 				<h4>（由20230819制作）</h4>
 			</div>
 			<div style="margin-top: 15px;display: flex;margin-left: 300px;">
 				<form action="Guessing number.html" id="scoreform">
 					<h4 id="score" style="z-index: 2;"></h4>
-					<button style=";margin-top: 15px;left: -0px;z-index: 0;" id="button2" onclick="restart()">重新开始</button>
-					<div id="box" style="margin-top: -20px;margin-left: 13px;z-index: -1;"></div>
-					<div id="box1" style="margin-top: -25px;margin-left: 13px;z-index: -1;"></div>
+					<div>
+						<button style=";margin-top: 15px;left: -0px;z-index: 0;" id="button2" onclick="restart()">重新开始</button>
+						<div id="box" style="margin-top: -20px;margin-left: 13px;z-index: -1;"></div>
+						<div id="box1" style="margin-top: -25px;margin-left: 13px;z-index: -1;"></div>
+					</div>
 				</form>
 			</div>
 			<div style="margin-top: 15px;">
@@ -128,7 +130,7 @@
 			<div>
 				<h4 id="Tips"></h4>
 			</div>
-			<h5 style="margin-top: 100px;">Guessing number v0.0.5 by @CHCAT1320 and @一袋白凉粉啊</h5>
+			<h5 style="margin-top: 100px;">Guessing number v0.0.5 by @CHCAT1320</h5>
 		<audio id="bgm" src="audio/Bonus time.mp3" loop></audio>
 		</div>
 		<script src="js/run.js"></script>

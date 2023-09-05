@@ -19,13 +19,6 @@
   windowResize()
   // 监听窗口尺寸变化
   window.addEventListener('resize', windowResize);
-  
-  
-  //1320---time用在这了，你计时的time咋整
-  //凉粉---猫冰！你又不懂js，搁这瞎BB啥，还管我？
-  //1320---随你，出了bug我不管你
-  //凉粉---写你的html去
-  //凉粉---滚！
 
   var score=0
   var Score=document.getElementById('score');
@@ -47,6 +40,10 @@
 	  }
   },1000);
   
+  //1320---time用在这了，你计时的time咋整
+  //凉粉---你管我？
+  //凉粉---写你的html去
+  //凉粉---滚！
  var time=0
  var b=0
  var c=1000
@@ -119,9 +116,7 @@ buttons.addEventListener("mouseup", function() {
   buttons.classList.remove("clicked1");
 });
 
-function restart(){
-	
-}
+
 var scoreForm = document.getElementById("scoreform");
 scoreForm.method="get"
 scoreForm.action="Guessing number.html"
